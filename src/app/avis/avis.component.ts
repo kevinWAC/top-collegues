@@ -20,7 +20,6 @@ export class AvisComponent implements OnInit {
   }
 
  avisEvent(likeOrNot: string){
-  console.log("avis ",this.nbrAvis)
   this.like = (this.nbrAvis + 100 >= 1000) ? true : false;
   this.noLike = (this.nbrAvis - 100 <= -1000) ? true : false;
   let avis = (likeOrNot === "like") ? Avis.AIMER : Avis.DETESTER;
