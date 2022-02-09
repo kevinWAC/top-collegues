@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'top-collegues';
   Collegue: Collegue = {
     pseudo: "toto",
-    score: 100,
+    score: 0,
     photoUrl: "https://picsum.photos/id/237/200/300"
   }
 

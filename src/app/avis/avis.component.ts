@@ -8,14 +8,21 @@ import { Avis } from '../models';
 })
 export class AvisComponent implements OnInit {
 
+  like=false;
+  noLike=false;
   @Output() avisEvt = new EventEmitter<Avis>();
+  @Input() nbrAvis!: number;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
  avisEvent(likeOrNot: string){
+  console.log("avis ",this.nbrAvis)
+  this.like = (this.nbrAvis + 100 >= 1000) ? true : false;
+  this.noLike = (this.nbrAvis - 100 <= -1000) ? true : false;
   let avis = (likeOrNot === "like") ? Avis.AIMER : Avis.DETESTER;
   this.avisEvt.emit(avis);
  }
