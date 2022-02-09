@@ -2,5 +2,5 @@
   <img src='{{collegue.photoUrl}}'/>
   <p>Pseudo: {{collegue.pseudo}}</p>
   <p>Score: {{collegue.score}}</p>
-  <app-avis (avisEvt)="eventLikeOrNot($event)"></app-avis>
+  <app-avis (avisEvt)="eventLikeOrNot($event)" [nbrAvis]="cpt"></app-avis>
 </div>

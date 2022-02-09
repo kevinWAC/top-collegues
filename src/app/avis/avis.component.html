@@ -1,4 +1,4 @@
 <div class="containerAvis">
-  <button (click)="avisEvent('like')" >J'aime</button>
-  <button (click)="avisEvent('noLike')">Je déteste</button>
+  <button (click)="avisEvent('like')" [disabled]="like">J'aime</button>
+  <button (click)="avisEvent('noLike')" [disabled]="noLike">Je déteste</button>
 </div>
