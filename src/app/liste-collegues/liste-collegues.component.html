@@ -1,5 +1,6 @@
-<div class="containerListeCollegues">
+<div *ngIf ="collegues" class="containerListeCollegues" style="text-align: center;">
   <div *ngFor="let collegue of collegues">
     <app-collegue [collegue]="collegue"></app-collegue>
   </div>
 </div>
+

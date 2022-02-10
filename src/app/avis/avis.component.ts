@@ -11,7 +11,8 @@ export class AvisComponent implements OnInit {
   like=false;
   noLike=false;
   @Output() avisEvt = new EventEmitter<Avis>();
-  @Input() nbrAvis!: number;
+  @Input() btnJaime!: boolean;
+  @Input() btnDeteste!: boolean;
 
   constructor() {
   }
@@ -20,8 +21,6 @@ export class AvisComponent implements OnInit {
   }
 
  avisEvent(likeOrNot: string){
-  this.like = (this.nbrAvis + 100 >= 1000) ? true : false;
-  this.noLike = (this.nbrAvis - 100 <= -1000) ? true : false;
   let avis = (likeOrNot === "like") ? Avis.AIMER : Avis.DETESTER;
   this.avisEvt.emit(avis);
  }

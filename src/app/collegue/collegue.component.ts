@@ -7,8 +7,8 @@ import { Avis, Collegue} from '../models';
   styleUrls: ['./collegue.component.scss']
 })
 export class CollegueComponent implements OnInit {
-  cpt: number =  0;
-  constructor() { }
+  activeJaime = false;
+  activeDeteste = false;
 
   @Input() collegue!: Collegue;
 
@@ -16,7 +16,12 @@ export class CollegueComponent implements OnInit {
   }
 
   eventLikeOrNot(avisEvent: Avis) {
-      this.cpt = (avisEvent == 0) ? this.collegue.score += 100 : this.collegue.score -= 100;
+    if(this.activeJaime === false && avisEvent === 0)
+       this.collegue.score += 100;
+   this.activeJaime = (avisEvent === 0 && this.collegue.score >= 1000 ) ? true : false;
+   if(this.activeDeteste === false && avisEvent === 1)
+      this.collegue.score -= 100;
+   this.activeDeteste = (avisEvent === 1 && this.collegue.score <= -1000 ) ? true : false;
   }
 }
 

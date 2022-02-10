@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Collegue } from '../models';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-liste-collegues',
@@ -7,18 +9,13 @@ import { Collegue } from '../models';
   styleUrls: ['./liste-collegues.component.scss']
 })
 export class ListeColleguesComponent implements OnInit {
-  collegues: Collegue[] = [];
-  constructor() { }
+
+ collegues?: Collegue[];
+
+  constructor(private dataService: DataService) {
+    this.dataService.listerCollegues().subscribe(data => this.collegues = data)
+  }
 
   ngOnInit(): void {
-    this.collegues.push({pseudo: "pseudo1",score: 0,photoUrl: "https://picsum.photos/id/237/200/300"});
-    this.collegues.push({pseudo: "pseudo2",score: 0,photoUrl: "https://picsum.photos/id/1005/200/300"});
-    this.collegues.push({pseudo: "pseudo3",score: 0,photoUrl: "https://picsum.photos/id/1003/200/300"});
-    this.collegues.push({pseudo: "pseudo1",score: 0,photoUrl: "https://picsum.photos/id/237/200/300"});
-    this.collegues.push({pseudo: "pseudo2",score: 0,photoUrl: "https://picsum.photos/id/1005/200/300"});
-    this.collegues.push({pseudo: "pseudo3",score: 0,photoUrl: "https://picsum.photos/id/1003/200/300"});
-    this.collegues.push({pseudo: "pseudo1",score: 0,photoUrl: "https://picsum.photos/id/237/200/300"});
-    this.collegues.push({pseudo: "pseudo2",score: 0,photoUrl: "https://picsum.photos/id/1005/200/300"});
-    this.collegues.push({pseudo: "pseudo3",score: 0,photoUrl: "https://picsum.photos/id/1003/200/300"});
   }
 }
