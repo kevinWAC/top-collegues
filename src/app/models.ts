@@ -5,3 +5,4 @@ export interface Collegue {
 }
 
 export enum Avis {AIMER, DETESTER};
+
