@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Collegue } from './../models';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
@@ -16,17 +17,18 @@ export class NouveauCollegueTemplateFormComponent implements OnInit {
     photo: "",
   };
 
-  constructor(private dataSrv: DataService) { }
+  constructor(private dataSrv: DataService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   valider(){
-    console.log(this.collegue);
     this.dataSrv.creerUnCollegue(this.collegue)
     .subscribe(
-      colServeur => console.log(colServeur)
+      colServeur => {console.log(colServeur)
+      }
     );
+    this.router.navigateByUrl('/collegues');
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="containerCollegue">
   <img src={{collegue.photo}} alt="img" style="max-width: 128px;"/>
-  <p>{{collegue.pseudo | uppercase}}</p>
+  <p><a routerLink="/detail/{{collegue.pseudo}}">{{collegue.pseudo | uppercase}}</a></p>
   <p>{{collegue.score | score}}</p>
   <app-avis (avisEvt)="eventLikeOrNot($event)" [btnJaime]="activeJaime" [btnDeteste]="activeDeteste" ></app-avis>
 </div>

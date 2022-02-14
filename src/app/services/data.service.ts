@@ -21,9 +21,17 @@ export class DataService {
     });
   }
 
+  rechercherCollegueParPseudo(pseudo: string) : Observable<Collegue> {
+    return this.http.get<Collegue>(`https://formation-angular-collegues.herokuapp.com/api/v1/collegues/${pseudo}`);
+  }
+
   creerUnCollegue(collegue: Partial<Collegue>): Observable<Collegue> {
     return this.http.post<Collegue>("https://formation-angular-collegues.herokuapp.com/api/v1/collegues", {
-      collegue
+      "nom": collegue.nom,
+      "pseudo": collegue.pseudo,
+      "prenom": collegue.prenom,
+      "photo": collegue.photo
+
     });
   }
 }
